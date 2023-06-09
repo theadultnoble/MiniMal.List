@@ -1,21 +1,11 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { React } from "react";
-import { useFonts } from "expo-font";
-import * as SplashScreen from "expo-splash-screen";
 import Textinput from "../components/Textinput";
 import StyledButton from "../components/StyledButton";
 import LinkText from "../components/LinkText";
 
 const Signupscreen = () => {
-  const [fontsLoaded] = useFonts({
-    IndieFlower: require("../assets/fonts/IndieFlower-Regular.ttf"),
-  });
-
-  if (!fontsLoaded) {
-    return null;
-  }
-
   return (
     <View style={styles.container}>
       <View style={styles.contents}>
@@ -26,7 +16,7 @@ const Signupscreen = () => {
           <Textinput placeholder={"Username"} />
           <Textinput placeholder={"Email"} />
           <Textinput placeholder={"Password"} />
-          <LinkText title="Log in" />
+          <LinkText NavigateTo="loginscreen" title="Log in" />
           <StyledButton title={"Sign up"} />
         </View>
       </View>
