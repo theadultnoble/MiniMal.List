@@ -1,16 +1,10 @@
 import { StyleSheet, Text, View, Pressable } from "react-native";
 import React from "react";
-import { useNavigation } from "@react-navigation/native";
 
-const LinkText = ({ title, NavigateTo }) => {
-  const navigation = useNavigation();
+const LinkText = ({ title }) => {
   return (
     <View>
-      <Pressable
-        onPress={() => {
-          navigation.navigate(NavigateTo);
-        }}
-      >
+      <Pressable>
         <Text style={styles.TextStyle}>{title}</Text>
       </Pressable>
     </View>

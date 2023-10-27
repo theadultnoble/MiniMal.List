@@ -47,46 +47,14 @@ const Loginscreen = ({ navigation }) => {
     <View style={styles.container}>
       <View style={styles.contents}>
         <Text style={{ fontSize: 40, fontFamily: "IndieFlower" }}>
-          Welcome to
-        </Text>
-        <Text style={{ fontSize: 40, fontFamily: "IndieFlower" }}>
-          MiniMal-List
+          Welcome to MiniMal-List
         </Text>
         <View style={styles.formStyle}>
-          <Textinput
-            name="email"
-            value={value.name}
-            placeholder={"Email"}
-            autoCorrect={false}
-            autoCapitalize={"none"}
-            onChangeText={handleInputChnage}
-          />
-          <Textinput
-            name="password"
-            value={value.name}
-            placeholder={"Password"}
-            autoCorrect={false}
-            autoCapitalize={"none"}
-            onChangeText={handleInputChnage}
-          />
-          <LinkText NavigateTo="signupscreen" title="Sign up" />
-          <Pressable style={styles.ButtonStyle} onPress={login}>
-            <Text
-              style={{
-                fontSize: 24,
-                fontFamily: "IndieFlower",
-                color: "white",
-              }}
-            >
-              Log in
-            </Text>
-          </Pressable>
+          <Textinput placeholder={"Email"} />
+          <Textinput placeholder={"Password"} />
+          <LinkText NavigateTo="loginscreen" title="Sign up" />
+          <StyledButton title={"Log in"} />
         </View>
-        {!!value.error && (
-          <View style={styles.error}>
-            <Text>{value.error}</Text>
-          </View>
-        )}
       </View>
       <StatusBar />
     </View>
@@ -113,22 +81,5 @@ const styles = StyleSheet.create({
   formStyle: {
     marginTop: 40,
     fontSize: 25,
-  },
-  ButtonStyle: {
-    borderRadius: 5,
-    borderColor: "white",
-    borderWidth: 1,
-    width: "100%",
-    height: 40,
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 50,
-    backgroundColor: "#040505",
-  },
-  error: {
-    marginTop: 10,
-    padding: 10,
-    color: "#fff",
-    backgroundColor: "#D54826FF",
   },
 });

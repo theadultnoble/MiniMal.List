@@ -1,6 +1,13 @@
 import { StatusBar } from "expo-status-bar";
+<<<<<<< HEAD
 import { StyleSheet, Text, View, TextInput, Pressable } from "react-native";
 import { React, useState } from "react";
+=======
+import { StyleSheet, Text, View } from "react-native";
+import { React } from "react";
+import { useFonts } from "expo-font";
+import * as SplashScreen from "expo-splash-screen";
+>>>>>>> parent of 1204bd0 (add ons)
 import Textinput from "../components/Textinput";
 import StyledButton from "../components/StyledButton";
 import LinkText from "../components/LinkText";
@@ -45,6 +52,18 @@ const Signupscreen = ({ navigation }) => {
     }
   };
 
+<<<<<<< HEAD
+=======
+const Signupscreen = () => {
+  const [fontsLoaded] = useFonts({
+    IndieFlower: require("../assets/fonts/IndieFlower-Regular.ttf"),
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
+>>>>>>> parent of 1204bd0 (add ons)
   return (
     <View style={styles.container}>
       <View style={styles.contents}>
@@ -55,6 +74,7 @@ const Signupscreen = ({ navigation }) => {
           MiniMal-List
         </Text>
         <View style={styles.formStyle}>
+<<<<<<< HEAD
           <Textinput
             name="username"
             value={value.name}
@@ -91,6 +111,13 @@ const Signupscreen = ({ navigation }) => {
               Sign up
             </Text>
           </Pressable>
+=======
+          <Textinput placeholder={"Username"} />
+          <Textinput placeholder={"Email"} />
+          <Textinput placeholder={"Password"} />
+          <LinkText title="Log in" />
+          <StyledButton title={"Sign up"} />
+>>>>>>> parent of 1204bd0 (add ons)
         </View>
         {!!value.error && (
           <View style={styles.error}>
