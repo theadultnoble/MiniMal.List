@@ -50,10 +50,29 @@ const Loginscreen = ({ navigation }) => {
           Welcome to MiniMal-List
         </Text>
         <View style={styles.formStyle}>
-          <Textinput placeholder={"Email"} />
-          <Textinput placeholder={"Password"} />
-          <LinkText NavigateTo="loginscreen" title="Sign up" />
-          <StyledButton title={"Log in"} />
+          <Textinput
+            value={value.name}
+            name="email"
+            placeholder={"Email"}
+            onChangeText={handleInputChnage}
+            autoCorrect={false}
+            autoCapitalize={"none"}
+          />
+          <Textinput
+            value={value.name}
+            name="password"
+            placeholder={"Password"}
+            onChangeText={handleInputChnage}
+            autoCorrect={false}
+            autoCapitalize={"none"}
+          />
+          <LinkText NavigateTo="signupscreen" title="Sign up" />
+          <StyledButton
+            title={"Log in"}
+            backgroundColor="black"
+            color={"white"}
+            onPress={login}
+          />
         </View>
       </View>
       <StatusBar />
