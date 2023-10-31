@@ -76,9 +76,9 @@ function App() {
         ) : (
           <>
             <Stack.Screen component={Welcomescreen} name="welcomescreen" />
-            <Stack.Screen component={TasksDrawer} name="tasksdrawer" />
-            <Stack.Screen component={Signupscreen} name="signupscreen" />
             <Stack.Screen component={Loginscreen} name="loginscreen" />
+            <Stack.Screen component={Signupscreen} name="signupscreen" />
+            <Stack.Screen component={TasksDrawer} name="tasksdrawer" />
           </>
         )}
       </Stack.Navigator>
