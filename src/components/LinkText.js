@@ -4,6 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 
 const LinkText = ({ title, NavigateTo }) => {
   const navigation = useNavigation();
+
   return (
     <View>
       <Pressable

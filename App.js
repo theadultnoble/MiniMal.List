@@ -1,13 +1,15 @@
+import "react-native-gesture-handler";
+//TODO: Create a branch for every new feature
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Signupscreen from "./src/screens/Signupscreen";
 import Loginscreen from "./src/screens/Loginscreen";
 import Taskscreen from "./src/screens/Taskscreen";
-import Signupscreen from "./src/screens/Signupscreen";
 import Welcomescreen from "./src/screens/Welcomescreen";
-import { useFonts } from "expo-font";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
 import app from "./src/fireconfig/firebase";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useFonts } from "expo-font";
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
@@ -62,6 +64,7 @@ function App() {
       </Drawer.Navigator>
     );
   }
+
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
