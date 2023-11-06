@@ -3,6 +3,11 @@ import { StyleSheet, Text, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { useNavigation } from "@react-navigation/native";
 
+//TODO: Receive user* as a prop from App.js
+// user ? do this(_navigate task) : do this instead (_navigate sign up)
+
+//When WelcomeScreen mounts set time to navigate to screen
+
 const Welcomescreen = () => {
   return (
     <View style={styles.container}>
