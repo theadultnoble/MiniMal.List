@@ -2,11 +2,24 @@ import { StatusBar } from "expo-status-bar";
 import { Button, Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import app from "../fireconfig/firebase";
 
 const Taskscreen = ({ navigation }) => {
+  const auth = getAuth(app);
+
+  const checkUser = onAuthStateChanged(auth, (user) => {
+    if (user) {
+      console.log("User Is Logged");
+      console.log(user);
+    } else {
+      console.log("no userrrr");
+    }
+  });
   return (
     <View style={styles.container}>
       <View style={styles.contents}>
+        {/* <Button title="check user" onPress={checkUser()} /> */}
         <Pressable
           onPress={() => {
             navigation.toggleDrawer();
@@ -20,6 +33,7 @@ const Taskscreen = ({ navigation }) => {
           />
         </Pressable>
       </View>
+
       <StatusBar />
     </View>
   );

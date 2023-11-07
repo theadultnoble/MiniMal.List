@@ -1,13 +1,15 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { React, useState } from "react";
-import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import Textinput from "../components/Textinput";
 import StyledButton from "../components/StyledButton";
 import LinkText from "../components/LinkText";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import app from "../fireconfig/firebase";
 
 const Signupscreen = ({ navigation }) => {
+  const auth = getAuth(app);
   const [value, setValue] = useState({ username: "", email: "", password: "" });
 
   //callback function to handle input state
@@ -21,20 +23,14 @@ const Signupscreen = ({ navigation }) => {
       return;
     } else {
       try {
-        await createUserWithEmailAndPassword(
-          auth,
-          value.email,
-          value.password
-        ).then((userCredential) => {
-          // Signed in
-          const user = userCredential.user;
-        });
+        await createUserWithEmailAndPassword(auth, value.email, value.password);
         navigation.navigate("tasksdrawer");
       } catch (error) {
         setValue({
           ...value,
           error: error.message,
         });
+        console.log(error.message);
       }
     }
   };

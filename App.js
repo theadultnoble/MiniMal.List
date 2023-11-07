@@ -28,9 +28,10 @@ function App() {
         setUser(user);
       } else {
         setUser(undefined);
-        console.log("no user");
+        console.log(User);
       }
     });
+
     return () => isUserSignedIn();
   }, []);
 
@@ -69,16 +70,12 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         {User ? (
-          <>
-            <Stack.Screen component={Welcomescreen} name="welcomescreen" />
-            <Stack.Screen component={TasksDrawer} name="tasksdrawer" />
-          </>
+          <Stack.Screen component={TasksDrawer} name="tasksdrawer" />
         ) : (
           <>
+            <Stack.Screen component={Welcomescreen} name="welcomescreen" />
             <Stack.Screen component={Loginscreen} name="loginscreen" />
             <Stack.Screen component={Signupscreen} name="signupscreen" />
-            <Stack.Screen component={Welcomescreen} name="welcomescreen" />
-            <Stack.Screen component={TasksDrawer} name="tasksdrawer" />
           </>
         )}
       </Stack.Navigator>

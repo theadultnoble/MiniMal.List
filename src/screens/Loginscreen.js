@@ -4,7 +4,13 @@ import { React, useState } from "react";
 import Textinput from "../components/Textinput";
 import StyledButton from "../components/StyledButton";
 import LinkText from "../components/LinkText";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  setPersistence,
+  browserSessionPersistence,
+  onAuthStateChanged,
+} from "firebase/auth";
 import app from "../fireconfig/firebase";
 
 const Loginscreen = ({ navigation }) => {
@@ -25,20 +31,14 @@ const Loginscreen = ({ navigation }) => {
       return;
     } else {
       try {
-        await signInWithEmailAndPassword(
-          auth,
-          value.email,
-          value.password
-        ).then((userCredential) => {
-          // Signed in
-          const user = userCredential.user;
-        });
-        navigation.navigate("tasksdrawer");
+        await signInWithEmailAndPassword(auth, value.email, value.password);
+        navigation.navigate("tasksdrawer", { screen: "taskscreen" });
       } catch (error) {
         setValue({
           ...value,
           error: error.message,
         });
+        console.log(error);
       }
     }
   };

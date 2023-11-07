@@ -1,14 +1,32 @@
 import React, { useRef, useCallback, useMemo } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import { useNavigation } from "@react-navigation/native";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import app from "../fireconfig/firebase";
 
-//TODO: Receive user* as a prop from App.js
+//TODO: Validate user is signed in here
 // user ? do this(_navigate task) : do this instead (_navigate sign up)
 
 //When WelcomeScreen mounts set time to navigate to screen
 
-const Welcomescreen = () => {
+const Welcomescreen = ({ navigation }) => {
+  const auth = getAuth(app);
+
+  React.useEffect(() => {
+    // const timer =
+    setTimeout(() => {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          navigation.navigate("tasksdrawer", { screen: "taskscreen" });
+        } else {
+          navigation.navigate("loginscreen");
+        }
+      });
+    }, 3000);
+
+    // clearTimeout(timer);
+  }, []);
+
   return (
     <View style={styles.container}>
       <Text style={{ fontSize: 70, fontFamily: "IndieFlower" }}>

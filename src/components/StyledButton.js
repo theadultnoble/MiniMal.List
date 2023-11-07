@@ -23,7 +23,6 @@ const StyledButton = ({ title, backgroundColor, color, onPress }) => {
         style={dynamicStyles.ButtonStyle}
         onPress={() => {
           onPress();
-          navigation.navigate("taskscreen");
         }}
       >
         <Text
