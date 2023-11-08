@@ -5,7 +5,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import app from "../fireconfig/firebase";
 
 //TODO: Validate user is signed in here
-// user ? do this(_navigate task) : do this instead (_navigate sign up)
+// user ? do this(_navigate task) : do this instead (_navigate log in)
 
 //When WelcomeScreen mounts set time to navigate to screen
 
