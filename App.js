@@ -10,12 +10,12 @@ import Welcomescreen from "./src/screens/Welcomescreen";
 import app from "./src/fireconfig/firebase";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useFonts } from "expo-font";
-import {
-  createDrawerNavigator,
-  DrawerContentScrollView,
-  DrawerItemList,
-  DrawerItem,
-} from "@react-navigation/drawer";
+// import {
+//   createDrawerNavigator,
+//   DrawerContentScrollView,
+//   DrawerItemList,
+//   DrawerItem,
+// } from "@react-navigation/drawer";
 
 function App() {
   const auth = getAuth(app);
@@ -28,7 +28,7 @@ function App() {
         setUser(user);
       } else {
         setUser(undefined);
-        console.log(User);
+        // console.log(User.email);
       }
     });
 
@@ -44,36 +44,40 @@ function App() {
   }
 
   const Stack = createNativeStackNavigator();
-  const Drawer = createDrawerNavigator();
+  // const Drawer = createDrawerNavigator();
 
-  function CustomDrawerContent(props) {
-    return (
-      <DrawerContentScrollView {...props}>
-        <DrawerItemList {...props} />
-      </DrawerContentScrollView>
-    );
-  }
+  // function CustomDrawerContent(props) {
+  //   return (
+  //     <DrawerContentScrollView {...props}>
+  //       <DrawerItemList {...props} />
+  //     </DrawerContentScrollView>
+  //   );
+  // }
 
-  function TasksDrawer() {
-    return (
-      <Drawer.Navigator
-        screenOptions={{ headerShown: false }}
-        drawerContent={(props) => <CustomDrawerContent {...props} />}
-      >
-        <Drawer.Screen name="taskscreen" component={Taskscreen} />
-        <Drawer.Screen name="welcomescreen" component={Welcomescreen} />
-      </Drawer.Navigator>
-    );
-  }
+  // function TasksDrawer() {
+  //   return (
+  //     <Drawer.Navigator
+  //       screenOptions={{ headerShown: false }}
+  //       drawerContent={(props) => <CustomDrawerContent {...props} />}
+  //     >
+  //       <Drawer.Screen name="taskscreen" component={Taskscreen} />
+  //       <Drawer.Screen name="welcomescreen" component={Welcomescreen} />
+  //     </Drawer.Navigator>
+  //   );
+  // }
 
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         {User ? (
-          <Stack.Screen component={TasksDrawer} name="tasksdrawer" />
+          <>
+            <Stack.Screen name="taskscreen" component={Taskscreen} />
+            <Stack.Screen component={Welcomescreen} name="welcomescreen" />
+          </>
         ) : (
           <>
             <Stack.Screen component={Welcomescreen} name="welcomescreen" />
+            <Stack.Screen name="taskscreen" component={Taskscreen} />
             <Stack.Screen component={Loginscreen} name="loginscreen" />
             <Stack.Screen component={Signupscreen} name="signupscreen" />
           </>
