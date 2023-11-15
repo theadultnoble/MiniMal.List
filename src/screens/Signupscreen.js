@@ -24,7 +24,7 @@ const Signupscreen = ({ navigation }) => {
     } else {
       try {
         await createUserWithEmailAndPassword(auth, value.email, value.password);
-        navigation.navigate("tasksdrawer");
+        navigation.navigate("taskscreen");
       } catch (error) {
         setValue({
           ...value,

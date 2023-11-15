@@ -17,9 +17,10 @@ const Welcomescreen = ({ navigation }) => {
     setTimeout(() => {
       onAuthStateChanged(auth, (user) => {
         if (user) {
-          navigation.navigate("tasksdrawer", { screen: "taskscreen" });
+          navigation.navigate("taskscreen");
         } else {
-          navigation.navigate("loginscreen");
+          //TODO: fix navigation to loginscreen
+          navigation.navigate("taskscreen");
         }
       });
     }, 3000);

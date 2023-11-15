@@ -32,7 +32,7 @@ const Loginscreen = ({ navigation }) => {
     } else {
       try {
         await signInWithEmailAndPassword(auth, value.email, value.password);
-        navigation.navigate("tasksdrawer", { screen: "taskscreen" });
+        navigation.navigate("taskscreen");
       } catch (error) {
         setValue({
           ...value,
