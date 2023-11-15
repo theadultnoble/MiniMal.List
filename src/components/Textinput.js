@@ -34,6 +34,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 3,
     marginBottom: 20,
     fontSize: 23,
-    fontFamily: "IndieFlower",
+    fontFamily: "Baskerville",
   },
 });
