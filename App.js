@@ -10,6 +10,12 @@ import Welcomescreen from "./src/screens/Welcomescreen";
 import app from "./src/fireconfig/firebase";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useFonts } from "expo-font";
+import {
+  Poppins_200ExtraLight,
+  Poppins_700Bold,
+  Poppins_400Regular,
+} from "@expo-google-fonts/poppins";
+import { IndieFlower_400Regular } from "@expo-google-fonts/indie-flower";
 // import {
 //   createDrawerNavigator,
 //   DrawerContentScrollView,
@@ -37,6 +43,9 @@ function App() {
 
   const [fontsLoaded] = useFonts({
     IndieFlower: require("./src/assets/fonts/IndieFlower-Regular.ttf"),
+    Poppins_200ExtraLight,
+    Poppins_700Bold,
+    Poppins_400Regular,
   });
 
   if (!fontsLoaded) {

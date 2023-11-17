@@ -9,6 +9,8 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@expo-google-fonts/indie-flower": "^0.2.3",
+    "@expo-google-fonts/poppins": "^0.2.3",
     "@expo/vector-icons": "^13.0.0",
     "@react-navigation/bottom-tabs": "^6.5.11",
     "@react-navigation/drawer": "^6.6.3",
