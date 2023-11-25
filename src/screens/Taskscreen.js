@@ -89,13 +89,13 @@ const Taskscreen = ({ navigation }) => {
       </View>
       <View
         style={{
-          borderWidth: 1,
+          // borderWidth: 1,
           padding: 15,
           borderRadius: 35,
           height: 240,
           width: "100%",
           justifyContent: "space-between",
-          marginTop: 10,
+          marginTop: 5,
           backgroundColor: "#2A2A2A",
         }}
       >
@@ -148,96 +148,125 @@ const Taskscreen = ({ navigation }) => {
           </Text>
         </View>
       </View>
-      <FlatList
-        horizontal={true}
-        showsHorizontalScrollIndicator={false}
-        data={Week}
-        renderItem={({ item }) => {
-          return (
-            <View
-              style={{
-                borderWidth: 1.2,
-                borderColor: "#2A2A2A",
-                borderRadius: 25,
-                height: 25,
-                width: 60,
-                padding: 5,
-                marginHorizontal: 5,
-                marginVertical: 15,
-                justifyContent: "center",
-                alignItems: "center",
-                flexDirection: "row",
-              }}
-            >
-              <Text
-                style={{
-                  fontSize: 13,
-                  fontWeight: "500",
-                  fontFamily: "Poppins_400Regular",
-                  // borderWidth: 0.5,
-                }}
-              >
-                {item.date}
-              </Text>
-              <Text
-                style={{
-                  fontSize: 12,
-                  fontFamily: "Poppins_200ExtraLight",
-                  marginHorizontal: 1,
-                  // borderWidth: 0.5,
-                }}
-              >
-                {item.day}
-              </Text>
-            </View>
-          );
+      <View
+        style={{
+          // borderWidth: 1,
+          marginTop: 10,
+          paddingTop: 3,
+          marginBottom: 2,
+          height: 43,
         }}
-        keyExtractor={(item) => item.date}
-      />
-      <FlatList
-        showsVerticalScrollIndicator={false}
-        data={tasks}
-        keyExtractor={(item) => item.type}
-        renderItem={({ item }) => {
-          return (
-            <View
-              style={{
-                borderWidth: 0.5,
-                borderColor: "#2A2A2A",
-                borderRadius: 15,
-                height: 65,
-                padding: 5,
-                marginVertical: 10,
-                justifyContent: "center",
-                alignItems: "center",
-                // flexDirection: "row",
-              }}
-            >
-              <Text
+      >
+        <FlatList
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+          data={Week}
+          keyExtractor={(item) => item.date}
+          renderItem={({ item }) => {
+            return (
+              <View
                 style={{
-                  fontSize: 18,
-                  fontWeight: "500",
-                  fontFamily: "Poppins_400Regular",
-                  // borderWidth: 0.5,
+                  borderWidth: 1.2,
+                  borderColor: "#2A2A2A",
+                  borderRadius: 25,
+                  height: 35,
+                  width: 73,
+                  padding: 5,
+                  marginHorizontal: 5,
+                  justifyContent: "center",
+                  alignItems: "center",
+                  flexDirection: "row",
                 }}
               >
-                {item.TaskDetails}
-              </Text>
-              <Text
-                style={{
-                  justifyContent: "flex-start",
-                  fontSize: 13,
-                  fontFamily: "Poppins_200ExtraLight",
-                  marginHorizontal: 1,
-                  // borderWidth: 0.5,
-                }}
-              >
-                {item.type}
-              </Text>
-            </View>
-          );
+                <Text
+                  style={{
+                    fontSize: 15,
+                    fontFamily: "Poppins_700Bold",
+                    // borderWidth: 0.5,
+                  }}
+                >
+                  {item.date}
+                </Text>
+                <Text
+                  style={{
+                    fontSize: 12,
+                    fontFamily: "Poppins_200ExtraLight",
+                    marginHorizontal: 1,
+                    // borderWidth: 0.5,
+                  }}
+                >
+                  {item.day}
+                </Text>
+              </View>
+            );
+          }}
+        />
+      </View>
+      <View
+        style={{
+          width: 350,
+          height: 275,
+          alignItems: "flex-end",
+          // justifyContent: "center",
+          borderWidth: 1,
         }}
-      />
+      >
+        <FlatList
+          showsVerticalScrollIndicator={false}
+          data={tasks}
+          keyExtractor={(item) => item.type}
+          renderItem={({ item }) => {
+            return (
+              <View
+                style={{
+                  borderWidth: 0.5,
+                  justifyContent: "space-between",
+                }}
+              >
+                <View style={[styles.taskBox, styles.taskShadow]}>
+                  <View>
+                    <FontAwesome name="circle-thin" size={32} color="#2A2A2A" />
+                  </View>
+                  <View
+                    style={{
+                      // borderWidth: 0.5,
+                      left: 13,
+                    }}
+                  >
+                    <Text
+                      style={{
+                        fontSize: 13,
+                        fontFamily: "Poppins_700Bold",
+                        // borderWidth: 0.5,
+                        width: 200,
+                      }}
+                    >
+                      {item.TaskDetails}
+                    </Text>
+                    <Text
+                      style={{
+                        fontSize: 10,
+                        fontFamily: "Poppins_200ExtraLight",
+                        marginHorizontal: 1,
+                        // borderWidth: 0.5,
+                      }}
+                    >
+                      {item.type}
+                    </Text>
+                  </View>
+                  <View style={{ left: 275, bottom: 42, position: "absolute" }}>
+                    <MaterialCommunityIcons
+                      name="dots-horizontal"
+                      size={21}
+                      color="#2A2A2A"
+                    />
+                  </View>
+                </View>
+              </View>
+            );
+          }}
+        />
+      </View>
 
       <View style={styles.bottomTab}>
         <Feather
@@ -249,13 +278,13 @@ const Taskscreen = ({ navigation }) => {
         <Ionicons
           style={{ color: "#2A2A2A" }}
           name="add-circle"
-          size={65}
+          size={74}
           color="black"
         />
         <Feather
           style={{ color: "#2A2A2A" }}
           name="calendar"
-          size={45}
+          size={44}
           color="black"
         />
       </View>
@@ -271,6 +300,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     padding: 20,
+    // borderWidth: "10px",
   },
   headerContents: {
     flexDirection: "row",
@@ -281,9 +311,9 @@ const styles = StyleSheet.create({
     // borderWidth: "1px",
   },
   nameDateContent: {
-    margin: 4,
+    margin: 1,
+    bottom: 3,
     width: "100%",
-    height: "30px",
     alignItems: "center",
     justifyContent: "flex-start",
     // borderWidth: "1px",
@@ -293,13 +323,36 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   bottomTab: {
-    marginTop: 10,
+    marginTop: 5,
     flexDirection: "row",
     // borderWidth: "1px",
     width: "100%",
-    padding: 10,
+    height: 80,
     justifyContent: "space-evenly",
-    // alignItems: "center",
-    marginBottom: 35,
+    alignItems: "center",
+    marginBottom: 10,
+  },
+  taskBox: {
+    borderWidth: 1,
+    borderColor: "#2A2A2A",
+    backgroundColor: "#FBFBFB",
+    borderRadius: 20,
+    height: 70,
+    width: 310,
+    paddingLeft: 20,
+    // marginTop: 15,
+    // marginRight: 5,
+    alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "flex-start",
+  },
+  taskShadow: {
+    shadowColor: "#2A2A2A",
+    shadowOffset: {
+      height: 7,
+      width: 1,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
   },
 });
