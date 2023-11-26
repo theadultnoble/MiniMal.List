@@ -4,7 +4,7 @@ import React from "react";
 const TimeSTamp = () => {
   return (
     <View>
-      <Text>9.00</Text>
+      <Text style={styles.textSTamp}>9.00</Text>
     </View>
   );
 };
