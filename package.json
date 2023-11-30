@@ -12,6 +12,7 @@
     "@expo-google-fonts/indie-flower": "^0.2.3",
     "@expo-google-fonts/poppins": "^0.2.3",
     "@expo/vector-icons": "^13.0.0",
+    "@gorhom/bottom-sheet": "^4.5.1",
     "@react-navigation/bottom-tabs": "^6.5.11",
     "@react-navigation/drawer": "^6.6.3",
     "@react-navigation/native": "^6.1.6",

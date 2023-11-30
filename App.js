@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Signupscreen from "./src/screens/Signupscreen";
 import Loginscreen from "./src/screens/Loginscreen";
 import Taskscreen from "./src/screens/Taskscreen";
+import CalendarScreen from "./src/screens/CalendarScreen";
 import Welcomescreen from "./src/screens/Welcomescreen";
 import app from "./src/fireconfig/firebase";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
@@ -16,6 +17,8 @@ import {
   Poppins_400Regular,
 } from "@expo-google-fonts/poppins";
 import { IndieFlower_400Regular } from "@expo-google-fonts/indie-flower";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+
 // import {
 //   createDrawerNavigator,
 //   DrawerContentScrollView,
@@ -87,6 +90,7 @@ function App() {
           <>
             <Stack.Screen component={Welcomescreen} name="welcomescreen" />
             <Stack.Screen name="taskscreen" component={Taskscreen} />
+            <Stack.Screen name="calendarscreen" component={CalendarScreen} />
             <Stack.Screen component={Loginscreen} name="loginscreen" />
             <Stack.Screen component={Signupscreen} name="signupscreen" />
           </>
@@ -97,5 +101,9 @@ function App() {
 }
 
 export default () => {
-  return <App />;
+  return (
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <App />
+    </GestureHandlerRootView>
+  );
 };
