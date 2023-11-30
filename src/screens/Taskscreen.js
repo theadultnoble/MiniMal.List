@@ -8,6 +8,7 @@ import app from "../fireconfig/firebase";
 import Task from "../components/Task";
 import DatePill from "../components/DatePill";
 import ActiveTask from "../components/ActiveTask";
+import BottomSheet from "@gorhom/bottom-sheet";
 
 const Taskscreen = ({ navigation }) => {
   const auth = getAuth(app);
@@ -47,6 +48,7 @@ const Taskscreen = ({ navigation }) => {
           name="home"
           size={45}
           color="black"
+          onPress={() => navigation.navigate("taskscreen")}
         />
         <Ionicons
           style={{ color: "#2A2A2A" }}
@@ -59,6 +61,9 @@ const Taskscreen = ({ navigation }) => {
           name="calendar"
           size={44}
           color="black"
+          onPress={() => (
+            navigation.navigate("calendarscreen"), console.log("clicked")
+          )}
         />
       </View>
       <StatusBar />
