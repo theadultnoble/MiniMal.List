@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { Pressable, StyleSheet, Text, View } from "react-native";
-import { React, useState } from "react";
+import { React, useState, useMemo, useRef } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
@@ -8,10 +8,15 @@ import app from "../fireconfig/firebase";
 import Task from "../components/Task";
 import DatePill from "../components/DatePill";
 import ActiveTask from "../components/ActiveTask";
-import BottomSheet from "@gorhom/bottom-sheet";
+import CalendarBottomSheet from "../components/CalendarBottomSheet";
 
 const Taskscreen = ({ navigation }) => {
   const auth = getAuth(app);
+  const bottomSheetModalRef = useRef(null);
+
+  function handlePresentBottomCalendar() {
+    bottomSheetModalRef.current?.present();
+  }
 
   return (
     <View style={styles.container}>
@@ -44,28 +49,28 @@ const Taskscreen = ({ navigation }) => {
 
       <View style={styles.bottomTab}>
         <Feather
-          style={{ color: "#2A2A2A" }}
+          style={{ color: "#F0F0F0" }}
           name="home"
-          size={45}
-          color="black"
+          size={35}
           onPress={() => navigation.navigate("taskscreen")}
         />
         <Ionicons
-          style={{ color: "#2A2A2A" }}
+          style={{
+            color: "#F0F0F0",
+          }}
           name="add-circle"
-          size={74}
-          color="black"
+          size={65}
         />
         <Feather
-          style={{ color: "#2A2A2A" }}
+          style={{ color: "#F0F0F0" }}
           name="calendar"
-          size={44}
-          color="black"
-          onPress={() => (
-            navigation.navigate("calendarscreen"), console.log("clicked")
-          )}
+          size={35}
+          //FIXME: function is called without click : 'Function components cannot be given refs.
+          //Attempts to access this ref will fail. Did you mean to use React.forwardRef()'
+          onPress={() => handlePresentBottomCalendar()}
         />
       </View>
+      <CalendarBottomSheet ref={bottomSheetModalRef} />
       <StatusBar />
     </View>
   );
@@ -115,14 +120,15 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   bottomTab: {
-    flexDirection: "row",
-    // borderWidth: "1px",
-    width: "100%",
-    height: 80,
+    borderRadius: 25,
+    backgroundColor: "#2A2A2A",
+    width: "85%",
+    height: 70,
     position: "absolute",
+    bottom: 30,
+    flexDirection: "row",
     justifyContent: "space-evenly",
     alignItems: "center",
-    bottom: 30,
   },
   taskViewStyle: {
     width: 350,

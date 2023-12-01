@@ -3,10 +3,10 @@ import "react-native-gesture-handler";
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Signupscreen from "./src/screens/Signupscreen";
 import Loginscreen from "./src/screens/Loginscreen";
 import Taskscreen from "./src/screens/Taskscreen";
-import CalendarScreen from "./src/screens/CalendarScreen";
 import Welcomescreen from "./src/screens/Welcomescreen";
 import app from "./src/fireconfig/firebase";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
@@ -56,25 +56,15 @@ function App() {
   }
 
   const Stack = createNativeStackNavigator();
-  // const Drawer = createDrawerNavigator();
+  // const Tab = createBottomTabNavigator();
 
-  // function CustomDrawerContent(props) {
+  // function MyTabs() {
   //   return (
-  //     <DrawerContentScrollView {...props}>
-  //       <DrawerItemList {...props} />
-  //     </DrawerContentScrollView>
-  //   );
-  // }
-
-  // function TasksDrawer() {
-  //   return (
-  //     <Drawer.Navigator
-  //       screenOptions={{ headerShown: false }}
-  //       drawerContent={(props) => <CustomDrawerContent {...props} />}
-  //     >
-  //       <Drawer.Screen name="taskscreen" component={Taskscreen} />
-  //       <Drawer.Screen name="welcomescreen" component={Welcomescreen} />
-  //     </Drawer.Navigator>
+  //     <Tab.Navigator>
+  //       <Tab.Screen name="taskscreen" component={Taskscreen} />
+  //       <Tab.Screen name="taskscreen" component={Taskscreen} />
+  //       <Tab.Screen name="calendarscreen" component={CalendarScreen} />
+  //     </Tab.Navigator>
   //   );
   // }
 
@@ -90,7 +80,6 @@ function App() {
           <>
             <Stack.Screen component={Welcomescreen} name="welcomescreen" />
             <Stack.Screen name="taskscreen" component={Taskscreen} />
-            <Stack.Screen name="calendarscreen" component={CalendarScreen} />
             <Stack.Screen component={Loginscreen} name="loginscreen" />
             <Stack.Screen component={Signupscreen} name="signupscreen" />
           </>
