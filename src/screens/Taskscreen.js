@@ -13,10 +13,15 @@ import CalendarBottomSheet from "../components/CalendarBottomSheet";
 const Taskscreen = ({ navigation }) => {
   const auth = getAuth(app);
   const bottomSheetModalRef = useRef(null);
+  console.log(bottomSheetModalRef);
 
-  function handlePresentBottomCalendar() {
-    bottomSheetModalRef.current?.present();
-  }
+  const handlePresentBottomCalendar = () => {
+    bottomSheetModalRef.current?.expand();
+  };
+
+  const handleCloseBottomCalendar = () => {
+    bottomSheetModalRef.current?.close();
+  };
 
   return (
     <View style={styles.container}>
@@ -70,7 +75,10 @@ const Taskscreen = ({ navigation }) => {
           onPress={() => handlePresentBottomCalendar()}
         />
       </View>
-      <CalendarBottomSheet ref={bottomSheetModalRef} />
+      <CalendarBottomSheet
+        innerRef={bottomSheetModalRef}
+        closeButton={handleCloseBottomCalendar}
+      />
       <StatusBar />
     </View>
   );
