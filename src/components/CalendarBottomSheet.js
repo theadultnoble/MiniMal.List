@@ -1,16 +1,19 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View } from "react-native";
 import { React, useState, useMemo, useRef } from "react";
 import BottomSheet from "@gorhom/bottom-sheet";
 
-const CalendarBottomSheet = ({ ref }) => {
-  const snapPoints = useMemo(() => ["50%"]);
+const CalendarBottomSheet = ({ innerRef, closeButton }) => {
+  const snapPoints = useMemo(() => ["90%"]);
 
   return (
-    <BottomSheet ref={ref} snapPoints={snapPoints} index={0}>
-      <View style={{ flex: 1, alignItems: "center" }}>
-        <Text>Awesome 🎉</Text>
-      </View>
-    </BottomSheet>
+    <>
+      <BottomSheet ref={innerRef} snapPoints={snapPoints} index={0}>
+        <View style={{ flex: 1, alignItems: "center" }}>
+          <Text>Awesome 🎉</Text>
+          <Button onPress={closeButton} title="Close" />
+        </View>
+      </BottomSheet>
+    </>
   );
 };
 
