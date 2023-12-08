@@ -1,13 +1,13 @@
 import "react-native-gesture-handler";
 //TODO: Create a branch for every new feature
-import * as React from "react";
+import { React, useCallback, useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Signupscreen from "./src/screens/Signupscreen";
 import Loginscreen from "./src/screens/Loginscreen";
 import Taskscreen from "./src/screens/Taskscreen";
 import Welcomescreen from "./src/screens/Welcomescreen";
+import * as SplashScreen from "expo-splash-screen";
 import app from "./src/fireconfig/firebase";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useFonts } from "expo-font";
@@ -19,31 +19,15 @@ import {
 import { IndieFlower_400Regular } from "@expo-google-fonts/indie-flower";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
-// import {
-//   createDrawerNavigator,
-//   DrawerContentScrollView,
-//   DrawerItemList,
-//   DrawerItem,
-// } from "@react-navigation/drawer";
+SplashScreen.preventAutoHideAsync();
 
 function App() {
   const auth = getAuth(app);
+  const [User, setUser] = useState(null);
 
-  const [User, setUser] = React.useState(null);
+  const Stack = createNativeStackNavigator();
 
-  React.useEffect(() => {
-    const isUserSignedIn = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
-      } else {
-        setUser(undefined);
-        // console.log(User.email);
-      }
-    });
-
-    return () => isUserSignedIn();
-  }, []);
-
+  // Load fonts
   const [fontsLoaded] = useFonts({
     IndieFlower: require("./src/assets/fonts/IndieFlower-Regular.ttf"),
     Poppins_200ExtraLight,
@@ -51,21 +35,30 @@ function App() {
     Poppins_400Regular,
   });
 
-  if (!fontsLoaded) {
-    return null;
+  useEffect(() => {
+    // Retrieve user
+    const isUserSignedIn = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser("no user");
+      }
+    });
+
+    return () => isUserSignedIn();
+  }, []);
+
+  // useEffect(() => {
+  if (fontsLoaded && User) {
+    SplashScreen.hideAsync();
+  } else {
+    return null; // Or a loading component
   }
+  // }, [fontsLoaded, User]);
 
-  const Stack = createNativeStackNavigator();
-  // const Tab = createBottomTabNavigator();
+  // // Conditional rendering based on fontsLoaded and User
+  // if (!fontsLoaded && !User) {
 
-  // function MyTabs() {
-  //   return (
-  //     <Tab.Navigator>
-  //       <Tab.Screen name="taskscreen" component={Taskscreen} />
-  //       <Tab.Screen name="taskscreen" component={Taskscreen} />
-  //       <Tab.Screen name="calendarscreen" component={CalendarScreen} />
-  //     </Tab.Navigator>
-  //   );
   // }
 
   return (
@@ -74,7 +67,7 @@ function App() {
         {User ? (
           <>
             <Stack.Screen name="taskscreen" component={Taskscreen} />
-            <Stack.Screen component={Welcomescreen} name="welcomescreen" />
+            {/* <Stack.Screen component={Welcomescreen} name="welcomescreen" /> */}
           </>
         ) : (
           <>
