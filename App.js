@@ -34,40 +34,32 @@ function App() {
     Poppins_700Bold,
     Poppins_400Regular,
   });
-  if (!fontsLoaded) {
-    return null;
-  }
 
   useEffect(() => {
-    try {
-      // Retrieve user
-      const isUserSignedIn = onAuthStateChanged(auth, (user) => {
-        if (user) {
-          setUser(user);
-        } else {
-          setUser("no user");
-        }
-      });
-      console.log(User);
-      return () => isUserSignedIn();
-    } catch (e) {
-      console.log(e);
-    }
+    // Retrieve user
+    const isUserSignedIn = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser("no user");
+      }
+    });
+
+    return () => isUserSignedIn();
   }, []);
 
-  SplashScreen.hideAsync();
+  // useEffect(() => {
+  if (fontsLoaded && User) {
+    SplashScreen.hideAsync();
+  } else {
+    return null; // Or a loading component
+  }
+  // }, [fontsLoaded, User]);
 
-  // const onLayoutRootView = useCallback(async () => {
-  //   if (User) {
-  //
-  //   }
-  // }, [User]);
+  // // Conditional rendering based on fontsLoaded and User
+  // if (!fontsLoaded && !User) {
 
-  // if (!User) {
-  //   return null;
   // }
-
-  // onLayoutRootView();
 
   return (
     <NavigationContainer>

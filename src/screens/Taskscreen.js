@@ -15,7 +15,6 @@ const Taskscreen = ({ navigation }) => {
   const auth = getAuth(app);
   const bottomSheetModalRef = useRef(null);
   const addBottomSheetModalRef = useRef(null);
-  console.log(bottomSheetModalRef);
 
   const handlePresentBottomCalendar = () => {
     bottomSheetModalRef.current?.expand();
