@@ -8,8 +8,10 @@ const AddTaskBottomSheet = ({ innerRef, closeButton }) => {
   return (
     <>
       <BottomSheet ref={innerRef} snapPoints={snapPoints} index={0}>
-        <View style={{ flex: 1, alignItems: "center" }}>
-          <Text>Awesome 🎉 Tasklist</Text>
+        <View
+          style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
+        >
+          <Text>Awesome ✔ Tasklist</Text>
           <Button onPress={() => closeButton()} title="Close" />
         </View>
       </BottomSheet>
