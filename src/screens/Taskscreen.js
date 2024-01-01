@@ -8,7 +8,6 @@ import app from "../fireconfig/firebase";
 import Task from "../components/Task";
 import DatePill from "../components/DatePill";
 import ActiveTask from "../components/ActiveTask";
-import CalendarBottomSheet from "../components/CalendarBottomSheet";
 import AddTaskBottomSheet from "../components/AddTaskBottomSheet";
 
 const Taskscreen = ({ navigation }) => {
@@ -16,6 +15,8 @@ const Taskscreen = ({ navigation }) => {
   const bottomSheetModalRef = useRef(null);
   const addBottomSheetModalRef = useRef(null);
 
+  //FIXME: BottomSheet presents on every app reload.
+  //Should only expand on function call
   const handlePresentBottomCalendar = () => {
     bottomSheetModalRef.current?.expand();
     addBottomSheetModalRef.current?.expand();
@@ -74,15 +75,11 @@ const Taskscreen = ({ navigation }) => {
           style={{ color: "#F0F0F0" }}
           name="calendar"
           size={35}
-          onPress={() => handlePresentBottomCalendar()}
+          onPress={() => navigation.navigate("calendarscreen")}
         />
       </View>
       <AddTaskBottomSheet
         innerRef={addBottomSheetModalRef}
-        closeButton={handleCloseBottomCalendar}
-      />
-      <CalendarBottomSheet
-        innerRef={bottomSheetModalRef}
         closeButton={handleCloseBottomCalendar}
       />
       <StatusBar />
