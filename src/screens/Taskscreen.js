@@ -8,19 +8,23 @@ import app from "../fireconfig/firebase";
 import Task from "../components/Task";
 import DatePill from "../components/DatePill";
 import ActiveTask from "../components/ActiveTask";
-import CalendarBottomSheet from "../components/CalendarBottomSheet";
+import AddTaskBottomSheet from "../components/AddTaskBottomSheet";
 
 const Taskscreen = ({ navigation }) => {
   const auth = getAuth(app);
   const bottomSheetModalRef = useRef(null);
-  console.log(bottomSheetModalRef);
+  const addBottomSheetModalRef = useRef(null);
 
+  //FIXME: BottomSheet presents on every app reload.
+  //Should only expand on function call
   const handlePresentBottomCalendar = () => {
     bottomSheetModalRef.current?.expand();
+    addBottomSheetModalRef.current?.expand();
   };
 
   const handleCloseBottomCalendar = () => {
     bottomSheetModalRef.current?.close();
+    addBottomSheetModalRef.current?.close();
   };
 
   return (
@@ -65,18 +69,17 @@ const Taskscreen = ({ navigation }) => {
           }}
           name="add-circle"
           size={65}
+          onPress={() => handlePresentBottomCalendar()}
         />
         <Feather
           style={{ color: "#F0F0F0" }}
           name="calendar"
           size={35}
-          //FIXME: function is called without click : 'Function components cannot be given refs.
-          //Attempts to access this ref will fail. Did you mean to use React.forwardRef()'
-          onPress={() => handlePresentBottomCalendar()}
+          onPress={() => navigation.navigate("calendarscreen")}
         />
       </View>
-      <CalendarBottomSheet
-        innerRef={bottomSheetModalRef}
+      <AddTaskBottomSheet
+        innerRef={addBottomSheetModalRef}
         closeButton={handleCloseBottomCalendar}
       />
       <StatusBar />
