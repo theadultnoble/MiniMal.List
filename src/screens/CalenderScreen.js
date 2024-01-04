@@ -4,7 +4,7 @@ import React from "react";
 const CalenderScreen = () => {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Calendar 📅</Text>
+      <Text>Calendar 📅📅</Text>
     </View>
   );
 };
