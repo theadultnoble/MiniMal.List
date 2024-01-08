@@ -7,7 +7,7 @@ const AddTaskBottomSheet = ({ innerRef, closeButton }) => {
 
   return (
     <>
-      <BottomSheet ref={innerRef} snapPoints={snapPoints} index={0}>
+      <BottomSheet ref={innerRef} snapPoints={snapPoints} index={-1}>
         <View style={styles.container}>
           <View>
             <Pressable style={styles.doneButton} onPress={() => closeButton()}>
