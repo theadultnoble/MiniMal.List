@@ -1,14 +1,18 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-
-const CalenderScreen = () => {
+import { CalendarList } from "react-native-calendars";
+const CalendarScreen = () => {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Calendar 📅📅</Text>
+      <CalendarList
+        onDayPress={(day) => {
+          console.log("selected day", day);
+        }}
+      />
     </View>
   );
 };
 
-export default CalenderScreen;
+export default CalendarScreen;
 
 const styles = StyleSheet.create({});
