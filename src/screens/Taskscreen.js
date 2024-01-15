@@ -116,10 +116,7 @@ const styles = StyleSheet.create({
     // borderWidth: 1,
     margin: 5,
   },
-  currentTaskStyle: {
-    fontFamily: "Baskerville",
-    margin: 5,
-  },
+
   bottomTab: {
     borderRadius: 25,
     backgroundColor: "#2A2A2A",
