@@ -3,7 +3,7 @@ import React from "react";
 
 const ProfileScreen = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text>ProfileScreen</Text>
     </View>
   );
@@ -11,4 +11,12 @@ const ProfileScreen = () => {
 
 export default ProfileScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 20,
+    // borderWidth: "10px",
+  },
+});
