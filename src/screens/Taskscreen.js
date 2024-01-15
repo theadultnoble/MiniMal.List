@@ -3,6 +3,7 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 import { React, useState, useMemo, useRef } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import app from "../fireconfig/firebase";
 import Task from "../components/Task";
@@ -52,11 +53,12 @@ const Taskscreen = ({ navigation }) => {
       </View>
 
       <View style={styles.bottomTab}>
-        <Feather
-          style={{ color: "#F0F0F0" }}
-          name="home"
+        <MaterialCommunityIcons
+          name="face-man-profile"
           size={35}
-          onPress={() => navigation.navigate("taskscreen")}
+          color="black"
+          style={{ color: "#F0F0F0" }}
+          onPress={() => navigation.navigate("profilescreen")}
         />
         <Ionicons
           style={{
