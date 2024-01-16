@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, Button, Pressable } from "react-native";
 import { React, useMemo, useRef } from "react";
 import BottomSheet from "@gorhom/bottom-sheet";
+import theme from "../theme";
 
 const AddTaskBottomSheet = ({ innerRef, closeButton }) => {
   const snapPoints = useMemo(() => ["95%"]);
@@ -25,8 +26,6 @@ export default AddTaskBottomSheet;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    borderColor: "black",
-    borderWidth: "0.5px",
     padding: 15,
   },
   doneButton: {

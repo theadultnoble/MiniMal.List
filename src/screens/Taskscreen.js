@@ -15,6 +15,8 @@ const Taskscreen = ({ navigation }) => {
   const auth = getAuth(app);
   const addBottomSheetModalRef = useRef(null);
 
+  //FIXME: BottomSheet presents on every app reload.
+  //Should only expand on function call
   const handlePresentBottomCalendar = () => {
     addBottomSheetModalRef.current?.expand();
   };
@@ -68,7 +70,12 @@ const Taskscreen = ({ navigation }) => {
           size={65}
           onPress={() => handlePresentBottomCalendar()}
         />
-        <Feather style={{ color: "#F0F0F0" }} name="calendar" size={35} />
+        <Feather
+          style={{ color: "#F0F0F0" }}
+          name="calendar"
+          size={35}
+          onPress={() => navigation.navigate("calendarscreen")}
+        />
       </View>
       <AddTaskBottomSheet
         innerRef={addBottomSheetModalRef}

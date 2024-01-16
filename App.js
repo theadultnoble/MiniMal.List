@@ -8,6 +8,7 @@ import Loginscreen from "./src/screens/Loginscreen";
 import Taskscreen from "./src/screens/Taskscreen";
 import ProfileScreen from "./src/screens/ProfileScreen";
 import Welcomescreen from "./src/screens/Welcomescreen";
+import CalenderScreen from "./src/screens/CalenderScreen";
 import * as SplashScreen from "expo-splash-screen";
 import app from "./src/fireconfig/firebase";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
@@ -57,11 +58,6 @@ function App() {
   }
   // }, [fontsLoaded, User]);
 
-  // // Conditional rendering based on fontsLoaded and User
-  // if (!fontsLoaded && !User) {
-
-  // }
-
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
@@ -70,12 +66,15 @@ function App() {
             <Stack.Screen name="taskscreen" component={Taskscreen} />
             <Stack.Screen name="profilescreen" component={ProfileScreen} />
             {/* <Stack.Screen component={Welcomescreen} name="welcomescreen" /> */}
+            <Stack.Screen name="calendarscreen" component={CalenderScreen} />
           </>
         ) : (
           <>
             {/* <Stack.Screen component={Welcomescreen} name="welcomescreen" /> */}
             <Stack.Screen name="taskscreen" component={Taskscreen} />
             <Stack.Screen name="profilescreen" component={ProfileScreen} />
+            <Stack.Screen name="calendarscreen" component={CalenderScreen} />
+            
             <Stack.Screen component={Loginscreen} name="loginscreen" />
             <Stack.Screen component={Signupscreen} name="signupscreen" />
           </>
