@@ -3,6 +3,7 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 import { React, useState, useMemo, useRef } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import app from "../fireconfig/firebase";
 import Task from "../components/Task";
@@ -12,18 +13,15 @@ import AddTaskBottomSheet from "../components/AddTaskBottomSheet";
 
 const Taskscreen = ({ navigation }) => {
   const auth = getAuth(app);
-  const bottomSheetModalRef = useRef(null);
   const addBottomSheetModalRef = useRef(null);
 
   //FIXME: BottomSheet presents on every app reload.
   //Should only expand on function call
   const handlePresentBottomCalendar = () => {
-    bottomSheetModalRef.current?.expand();
     addBottomSheetModalRef.current?.expand();
   };
 
   const handleCloseBottomCalendar = () => {
-    bottomSheetModalRef.current?.close();
     addBottomSheetModalRef.current?.close();
   };
 
@@ -57,11 +55,12 @@ const Taskscreen = ({ navigation }) => {
       </View>
 
       <View style={styles.bottomTab}>
-        <Feather
-          style={{ color: "#F0F0F0" }}
-          name="home"
+        <MaterialCommunityIcons
+          name="face-man-profile"
           size={35}
-          onPress={() => navigation.navigate("taskscreen")}
+          color="black"
+          style={{ color: "#F0F0F0" }}
+          onPress={() => navigation.navigate("profilescreen")}
         />
         <Ionicons
           style={{
@@ -126,10 +125,7 @@ const styles = StyleSheet.create({
     // borderWidth: 1,
     margin: 5,
   },
-  currentTaskStyle: {
-    fontFamily: "Baskerville",
-    margin: 5,
-  },
+
   bottomTab: {
     borderRadius: 25,
     backgroundColor: "#2A2A2A",

@@ -6,6 +6,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Signupscreen from "./src/screens/Signupscreen";
 import Loginscreen from "./src/screens/Loginscreen";
 import Taskscreen from "./src/screens/Taskscreen";
+import ProfileScreen from "./src/screens/ProfileScreen";
+import Welcomescreen from "./src/screens/Welcomescreen";
 import CalenderScreen from "./src/screens/CalenderScreen";
 import * as SplashScreen from "expo-splash-screen";
 import app from "./src/fireconfig/firebase";
@@ -62,11 +64,14 @@ function App() {
         {User ? (
           <>
             <Stack.Screen name="taskscreen" component={Taskscreen} />
+            <Stack.Screen name="profilescreen" component={ProfileScreen} />
+            {/* <Stack.Screen component={Welcomescreen} name="welcomescreen" /> */}
             <Stack.Screen name="calendarscreen" component={CalenderScreen} />
           </>
         ) : (
           <>
             <Stack.Screen name="taskscreen" component={Taskscreen} />
+            <Stack.Screen name="profilescreen" component={ProfileScreen} />
             <Stack.Screen name="calendarscreen" component={CalenderScreen} />
             <Stack.Screen component={Loginscreen} name="loginscreen" />
             <Stack.Screen component={Signupscreen} name="signupscreen" />
