@@ -73,6 +73,7 @@ function App() {
             <Stack.Screen name="taskscreen" component={Taskscreen} />
             <Stack.Screen name="profilescreen" component={ProfileScreen} />
             <Stack.Screen name="calendarscreen" component={CalenderScreen} />
+            
             <Stack.Screen component={Loginscreen} name="loginscreen" />
             <Stack.Screen component={Signupscreen} name="signupscreen" />
           </>
