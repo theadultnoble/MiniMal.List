@@ -70,6 +70,7 @@ function App() {
           </>
         ) : (
           <>
+            {/* <Stack.Screen component={Welcomescreen} name="welcomescreen" /> */}
             <Stack.Screen name="taskscreen" component={Taskscreen} />
             <Stack.Screen name="profilescreen" component={ProfileScreen} />
             <Stack.Screen name="calendarscreen" component={CalenderScreen} />
