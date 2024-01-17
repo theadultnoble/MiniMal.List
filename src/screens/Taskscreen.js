@@ -28,18 +28,15 @@ const Taskscreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.headerContents}>
-        <Pressable
+        <Ionicons
+          name="settings-outline"
+          size={30}
+          color="black"
+          style={{ alignSelf: "flex-end" }}
           onPress={() => {
-            navigation.navigate("welcomescreen");
+            navigation.navigate("profilescreen");
           }}
-        >
-          <Ionicons
-            name="settings-outline"
-            size={30}
-            color="black"
-            style={{ alignSelf: "flex-end" }}
-          />
-        </Pressable>
+        />
       </View>
       <View style={styles.nameDateContent}>
         {/* TODO: Pull and display username and date */}
