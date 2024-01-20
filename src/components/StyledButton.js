@@ -6,7 +6,7 @@ const StyledButton = ({ title, backgroundColor, color, onPress }) => {
   const navigation = useNavigation();
   const dynamicStyles = StyleSheet.create({
     ButtonStyle: {
-      borderRadius: 5,
+      borderRadius: 10,
       borderColor: "#A3A3A3",
       borderWidth: 1,
       width: "100%",

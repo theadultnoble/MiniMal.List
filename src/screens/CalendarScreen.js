@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 60,
     marginBottom: 30,
-    margin: 10,
+    padding: 20,
   },
   calendarContainer: {
     flex: 1,

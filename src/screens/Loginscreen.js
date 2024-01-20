@@ -20,7 +20,7 @@ const Loginscreen = ({ navigation }) => {
     password: "",
   });
 
-  //callback function to handle state
+  //callback function to handle input state
   const handleInputChnage = (name, newText) => {
     setValue({ ...value, [name]: newText });
   };

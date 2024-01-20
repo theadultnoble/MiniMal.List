@@ -1,5 +1,5 @@
 import { StyleSheet, TextInput, View } from "react-native";
-import { React, useState } from "react";
+import { React } from "react";
 
 const Textinput = ({
   placeholder,
@@ -34,6 +34,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 3,
     marginBottom: 20,
     fontSize: 23,
-    fontFamily: "Baskerville",
+    fontFamily: "Poppins_400Regular",
   },
 });
