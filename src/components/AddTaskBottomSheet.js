@@ -38,7 +38,7 @@ const AddTaskBottomSheet = ({ innerRef, closeButton }) => {
 
           <View>
             {/*TODO:Fix toggl styling */}
-            <AnimatedRectangularToggle />
+            {/* <AnimatedRectangularToggle /> */}
           </View>
           <StyledButton
             title={"Create task"}

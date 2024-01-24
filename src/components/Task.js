@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, FlatList } from "react-native";
-import React from "react";
+import { React, useState } from "react";
 import { FontAwesome } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
@@ -9,6 +9,8 @@ const Task = () => {
     { type: "Task2", TaskDetails: "Finish docs structure for Back4app" },
     { type: "Task3", TaskDetails: "Play with Photoshop" },
   ];
+
+  const [task, setTask] = useState();
 
   return (
     <View>

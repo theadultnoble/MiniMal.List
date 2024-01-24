@@ -11,7 +11,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#FFFFFF"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -23,6 +25,8 @@
     },
     "web": {
       "favicon": "./src/assets/favicon.png"
-    }
-  }
+    },
+    "sdkVersion": "49.0.0"
+  },
+  "name": "minimal-list"
 }

@@ -15,8 +15,10 @@ const Taskscreen = ({ navigation }) => {
   const auth = getAuth(app);
   const addBottomSheetModalRef = useRef(null);
 
-  //FIXME: BottomSheet presents on every app reload.
-  //Should only expand on function call
+  //DATE
+  const date = new Date().toDateString();
+  console.log(date);
+
   const handlePresentBottomCalendar = () => {
     addBottomSheetModalRef.current?.expand();
   };
@@ -43,7 +45,7 @@ const Taskscreen = ({ navigation }) => {
         <View style={{ flexDirection: "row" }}>
           <Text style={styles.greetingTaskStyle}>Hello, User</Text>
         </View>
-        <Text style={styles.dateStyle}>April, 26th 2023</Text>
+        <Text style={styles.dateStyle}>{date}</Text>
       </View>
       <ActiveTask />
       <DatePill />
@@ -51,6 +53,7 @@ const Taskscreen = ({ navigation }) => {
         <Task />
       </View>
 
+      {/* Custom Bottom Tab Navigator*/}
       <View style={styles.bottomTab}>
         <MaterialCommunityIcons
           name="face-man-profile"
