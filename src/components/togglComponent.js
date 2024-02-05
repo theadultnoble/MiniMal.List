@@ -18,7 +18,7 @@ const AnimatedRectangularToggle = () => {
     Animated.timing(highlightAnim, {
       toValue: selectedOption,
       duration: 300,
-      useNativeDriver: false,
+      useNativeDriver: true,
     }).start();
   }, [selectedOption]);
 
